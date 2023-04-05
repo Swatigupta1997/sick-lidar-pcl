@@ -1,0 +1,3 @@
+/home/manasa/sick_lidar/code/build/CMakeFiles/rebuild_cache.dir
+/home/manasa/sick_lidar/code/build/CMakeFiles/edit_cache.dir
+/home/manasa/sick_lidar/code/build/CMakeFiles/cloud_viewer.dir
