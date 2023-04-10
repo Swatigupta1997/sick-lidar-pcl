@@ -45,14 +45,14 @@ pcl::PointCloud <pcl::PointXYZRGB>::Ptr region_seg(pcl::PointCloud<pcl::PointXYZ
   std::vector <pcl::PointIndices> clusters;
   reg.extract (clusters);
 
-  std::cout << "Number of clusters is equal to " << clusters.size () << std::endl;
+  // std::cout << "Number of clusters is equal to " << clusters.size () << std::endl;
 
   pcl::PointCloud <pcl::PointXYZRGB>::Ptr colored_cloud = reg.getColoredCloud ();
   return colored_cloud;
 }
 
 // Can be modified to point to dataset dir
-std::string basedir = "/home/swati/Documents/SICK/PCL/repo/sick-lidar-pcl/code/data_collect_22Mar/";
+std::string basedir = "/home/swati/Documents/SICK/PCL/repo/sick-lidar-pcl/code/data_9_april-20230410T105734Z-001/data_9_april/";
 
 int main(int argc, const char **argv)
 {
@@ -94,9 +94,13 @@ int main(int argc, const char **argv)
 
        
         // The pointcloud
-        viewer.addPointCloud<pcl::PointXYZRGB> (colored_cloud, "Nube cargada");
-        viewer.setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "Nube cargada");         
-
+        viewer.addPointCloud<pcl::PointXYZRGB> (colored_cloud, "Filtered");
+        viewer.setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 2, "Filtered");         
+        cout<<t<<endl;
         viewer.spinOnce(100);
+        if (t>1000) {
+          t = 1;
+          cout<<"looping over"<<endl;
+        }
      }
 }
